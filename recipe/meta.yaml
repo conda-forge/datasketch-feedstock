@@ -1,5 +1,5 @@
 {% set name = "datasketch" %}
-{% set version = "1.6.1" %}
+{% set version = "1.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/datasketch-{{ version }}.tar.gz
-  sha256: e42aea4c5a6f0efa0f1c8ff1183c3c52a1ac94446e8dd5892147218207cc25a4
+  sha256: e80168eac138f9bb5425ee2d2c9729f971623b70216eaf0f37ea3f4c915d9bcb
 
 build:
   noarch: python
