@@ -1,0 +1,51 @@
+schema_version: 1
+
+context:
+  name: datasketch
+  version: 1.6.5
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/datasketch-${{ version }}.tar.gz
+  sha256: ba2848cb74f23d6d3dd444cf24edcbc47b1c34a171b1803231793ed4d74d4fcf
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - numpy >=1.11
+    - scipy >=1.0.0
+
+tests:
+  - python:
+      imports:
+        - datasketch
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: Probabilistic data structures for processing and searching very large datasets
+  license: MIT
+  license_file: LICENSE
+  homepage: https://ekzhu.github.io/datasketch
+  repository: https://github.com/ekzhu/datasketch
+
+extra:
+  recipe-maintainers:
+    - rxm7706
