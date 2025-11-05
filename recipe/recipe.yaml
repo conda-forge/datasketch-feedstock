@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: datasketch
-  version: "1.6.5"
+  version: "1.7.0"
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/datasketch-${{ version }}.tar.gz
-  sha256: ba2848cb74f23d6d3dd444cf24edcbc47b1c34a171b1803231793ed4d74d4fcf
+  sha256: 6e9913e923655dd5b1bc5ba6eecc1ff597b876a31720a49ed01570ea3069d9e3
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
